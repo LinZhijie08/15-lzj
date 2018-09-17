@@ -1,0 +1,41 @@
+1.父子为什么要合并
+	1.2个多更多个相邻块级元素在垂直外边距相遇时，会将垂直方向上的2个外边距合并为一个外边距
+	当父元素没有内容 或 内容在子元素的后面且没有内边距或没有边框时，子元素的上外边距将和父元素的上外边距合并为1个上外边距，且值为最大的那个上外边距，同时该上外边距作为父元素的上外边距。
+	现象：如果发生合并的外边距全部为正值，则合并后的外边距的高度等于这些发生合并的外边距的高度值中的较大者；如果发生合并的外边距不全是正值，则会拉近2个块级元素的垂直距离，甚至会发生重叠现象。
+2.before和afte伪类运用
+:before和:after的作用就是在指定的元素内容（而不是元素本身）之前或者之后插入一个包含content属性指定内容的行内元素
+<style>
+.quote-right:before,.quote-right:after{
+        content: '';
+        display:inline-block;
+        width: 20%;
+        margin: 5px 5%;
+        border-bottom: 1px solid #cacaca;
+    }
+.quote-right:after{
+        clear: both;
+}
+</style>
+    <div>
+        <span class="quote-right">小户型</span>
+    </div>
+3.上下垂直左右居中
+<style>
+.main{
+    background-color:#099;
+    width: 200px;
+    height: 220px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+</style>
+</head>
+
+<body>
+ <div class="main"></div>
+</body>
+</html>

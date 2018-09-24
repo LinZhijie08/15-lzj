@@ -1,0 +1,171 @@
+1.
+import random
+
+import sys
+ 
+
+password_list = ['z', 'y', 'x', 'w', 'v', 'u', 't', 's', 'r', 'q', 'p', 'o', 'n', 'm', 'l', 'k', 'j', 'i', 'h', 'g',
+   'f', 'e', 'd', 'c', 'b', 'a',
+ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
+]
+password_list_specialCharacter = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '-', '=']
+ 
+
+
+def generator_password(password_len, password_type, password_num):
+ 
+   """
+ 
+   生成密码并打印出来
+   :param password_len:   密码的长度
+   :param password_type: 密码的类型 ，1、简单的（纯数字），2、普通的（英文字母大小写+数字）3、复杂的（特殊字符+英文字母大小写+数字）
+
+   :param password_num:  生成密码的数量
+    
+   :return: null
+  
+   """
+   
+   for i in range(int(password_num)):
+
+        createPassword = ''
+
+        for j in range(int(password_len)): 
+             if password_type == '1':
+
+                   createPassword += str(random.randint(0, 10))
+
+             elif password_type == '2':
+
+                   createPassword += (random.sample(password_list, 1))[0]
+            	     else:
+
+                   createPassword += (random.sampl(password_list                   +password_list_specialCharacter, 1))[0]
+
+             print(createPassword)
+  
+
+def input_check(password_len, password_type, password_num):
+
+    '''
+
+    检测输入是否都为数字
+
+    :param password_len:   密码的长度
+
+    :param password_type: 密码的类型 ，1、简单的（纯数字），2、普通的（英文字母     大小写+数字）3、复杂的（特殊字符+英文字母大小写+数字）
+    :param       password_num:  生成密码的数量
+
+    :return:
+
+    '''
+    
+    if password_len.isdigit() and password_type.isdigit() and       password_num.isdigit():
+
+        return generator_password(password_len, password_type, password_num) 
+            print('您输入的有误，清重新输入！')
+
+        return main()
+ 
+ 
+
+def main():
+    
+    '''
+
+    执行循环生成
+
+    :return: null
+
+    '''
+
+    while True:
+
+        password_len = input('please enter you password lenght（密码长度）： ')
+          password_type = input('Simple slect 1,common select 2,complex select 3（        复杂度） ： ')
+
+        password_num = input('please enter generator password number（密码数量）         ： ')
+
+        input_check(password_len, password_type, password_num)
+
+        if input('请输入 exit 退出，不然继续') == 'exit':
+
+            sys.exit()
+ 
+ 
+
+if __name__ == '__main__':
+
+    main()
+
+main()
+
+2.
+class Solution:
+    def Find(self, array, target):
+        if array == [[]]:
+            return False
+        nRow = len(array)
+        nCol = len(array[0])
+        if target < array[0][0] or target > array[nRow-1][nCol-1]:
+            return False
+        else:
+            for i in range(nRow):
+                for j in range(nCol):
+                    if target == array[i][j]:
+                        return True
+            else:
+                return False
+             
+a = Solution()
+a.Find([[1,2,8,9],[2,4,9,12],[4,7,10,13],[6,8,11,15]],7)
+
+3.
+l=range(1,101)
+
+def delprimenum(str):
+
+    if str==1:
+
+        return str
+
+    for i in range(2,int(math.sqrt(str)+1)):
+
+        if str%i==0:
+
+            return str
+
+print (filter(delprimenum,l))
+
+4.
+def add(x,y):
+
+    return x + y
+ 
+
+def sub(x,y):
+
+    return x - y
+ 
+
+def sul(x,y):
+
+    return x * y
+ 
+
+def div(x,y):
+
+    return x / y
+ 
+
+
+5.
+def mergeMinValue(lst):
+    lst = list(map(str, lst))
+    m = len(max(lst, key=len))
+    newLst = [(i,i+i[-1]*(m-len(i))) for i in lst
+    newLst.sort(key=lambda item:item[1])
+    result = ''.join((item[0] for item in newLst))
+    print(newLst)
+    return int(result)lst = [321, 3, 32, 34]
+print(mergeMinValue(lst))

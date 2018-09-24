@@ -1,0 +1,88 @@
+1.
+def prt_user():
+	name = input('name: ')
+	age = int(input('age: '))
+	year = 2018 + 100 - age
+	x = f'{name}在{year}年为100岁'
+	print(r)
+	return year
+
+prt_user()
+name: chen
+age: 17
+
+2.
+def prt_get():
+	num = int(input("请输入一个整数: "))
+	if num % 2 == 0 and num ! = 0:
+		print("你输入的是一个偶数")
+	elif num % 2 == 1:
+		print("你输入的是一个奇数")
+	else:
+		print("你输入的是0")
+
+prt_get()
+
+3.
+（1）
+list = {"edabj″:"1912312″}
+any(list)
+
+True
+
+list = {}
+
+any(list)
+
+False
+（2）
+if len(list):
+	print("list不为空")
+else:
+	print("list为空")
+(3)
+if list:
+	print("list不为空")
+else:
+	print("list为空")
+
+4.
+(1)
+lst = [1,2,4]
+lst2=[x*2 for x in lst]
+lst2
+
+(2)
+lst = [1,2,4]
+lst2 = map(lambda x: x*2,lst)
+lst2
+list(lst2)
+
+5.
+def add(x,y)
+	return x+y
+
+from functools import reduce
+reduce (add,[1,2,3,4])
+
+6.
+list = [1,2,3,4,5,6,7,9]
+[x**2 for x in list if x<5]
+
+7.
+list1 = [2,3,4,5,77,8]
+list2 = [3,5,6,77,5,4]
+[x for x in list1 if x in list2]
+
+8.
+def max(x,y,z):
+	max = x
+	if y > max:
+		max = y
+	else:
+		max = z
+	return (max)
+
+print(max(1,4,5))
+
+9.
